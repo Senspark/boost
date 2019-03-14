@@ -1,0 +1,23 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boost_thread_static
+LOCAL_MODULE_FILENAME := lib$(LOCAL_MODULE)
+LOCAL_SRC_FILES := libs/android/$(TARGET_ARCH_ABI)/libboost_thread.a
+include $(PREBUILT_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boost_system_static
+LOCAL_MODULE_FILENAME := lib$(LOCAL_MODULE)
+LOCAL_SRC_FILES := libs/android/$(TARGET_ARCH_ABI)/libboost_system.a
+include $(PREBUILT_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := boost_static
+LOCAL_MODULE_FILENAME := lib$(LOCAL_MODULE)
+LOCAL_CFLAGS := -DBOOST_THREAD_PROVIDES_FUTURE
+LOCAL_EXPORT_CFLAGS := -DBOOST_THREAD_PROVIDES_FUTURE
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
+LOCAL_STATIC_LIBRARIES := cocos_ssl_static boost_thread_static boost_system_static
+include $(BUILD_STATIC_LIBRARY)
