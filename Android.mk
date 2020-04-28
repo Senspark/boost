@@ -19,5 +19,5 @@ LOCAL_CFLAGS := -DBOOST_THREAD_PROVIDES_FUTURE
 LOCAL_EXPORT_CFLAGS := -DBOOST_THREAD_PROVIDES_FUTURE
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include
-LOCAL_STATIC_LIBRARIES := cocos_ssl_static boost_thread_static boost_system_static
+LOCAL_STATIC_LIBRARIES := ext_ssl boost_thread_static boost_system_static
 include $(BUILD_STATIC_LIBRARY)
